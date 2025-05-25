@@ -97,7 +97,7 @@ Edit
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/library-management-system.gi
+https://github.com/PrashantRanjan-2006/Library-Management-System-by-Team-Tech-Titatns this is the link of the project acess it.
    Open the project in your IDE.
 
 Compile and run in the project-path:
