@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 import java.awt.*;
@@ -30,7 +15,7 @@ public class LibraryFrame extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        
+        // Create main panel with gradient background
         JPanel mainPanel = new JPanel() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -38,7 +23,7 @@ public class LibraryFrame extends JFrame {
                 Graphics2D g2d = (Graphics2D) g;
                 g2d.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
                 
-                
+                // Create subtle gradient background
                 GradientPaint gradient = new GradientPaint(
                     0, 0, new Color(248, 250, 252),
                     0, getHeight(), new Color(238, 242, 255)
@@ -49,16 +34,16 @@ public class LibraryFrame extends JFrame {
         };
         mainPanel.setLayout(new BorderLayout());
 
-        
+        // Header panel
         JPanel headerPanel = createHeaderPanel();
         
-        
+        // Content panel with modern card design
         JPanel contentPanel = createContentPanel();
         
-        
+        // Button panel
         JPanel buttonPanel = createButtonPanel();
         
-        
+        // Footer panel
         JPanel footerPanel = createFooterPanel();
 
         mainPanel.add(headerPanel, BorderLayout.NORTH);
@@ -68,7 +53,7 @@ public class LibraryFrame extends JFrame {
 
         add(mainPanel);
         
-        
+        // Initialize with welcome message
         displayWelcomeMessage();
     }
 
@@ -78,7 +63,7 @@ public class LibraryFrame extends JFrame {
         headerPanel.setLayout(new BorderLayout());
         headerPanel.setBorder(BorderFactory.createEmptyBorder(15, 20, 15, 20));
 
-        
+        // Left side - Library info with icon
         JPanel leftPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         leftPanel.setOpaque(false);
         
@@ -93,7 +78,7 @@ public class LibraryFrame extends JFrame {
         leftPanel.add(Box.createRigidArea(new Dimension(10, 0)));
         leftPanel.add(titleLabel);
 
-        
+        // Right side - User info
         JPanel rightPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         rightPanel.setOpaque(false);
         
@@ -130,7 +115,7 @@ public class LibraryFrame extends JFrame {
         contentPanel.setLayout(new BorderLayout());
         contentPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 10));
 
-        
+        // Create styled text area with card design
         infoArea = new JTextArea() {
             @Override
             protected void paintComponent(Graphics g) {
@@ -179,7 +164,7 @@ public class LibraryFrame extends JFrame {
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 10));
 
-        
+        // Student buttons
         JPanel studentPanel = new JPanel();
         studentPanel.setOpaque(false);
         studentPanel.setLayout(new BoxLayout(studentPanel, BoxLayout.Y_AXIS));
@@ -231,7 +216,7 @@ public class LibraryFrame extends JFrame {
         buttonPanel.add(studentPanel);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 15)));
 
-        
+        // Admin buttons
         if (currentUser.isAdmin()) {
             JPanel adminPanel = new JPanel();
             adminPanel.setOpaque(false);
@@ -286,7 +271,7 @@ public class LibraryFrame extends JFrame {
             buttonPanel.add(Box.createRigidArea(new Dimension(0, 15)));
         }
 
-        
+        // Logout button
         JPanel logoutPanel = new JPanel();
         logoutPanel.setOpaque(false);
         
@@ -309,13 +294,10 @@ public class LibraryFrame extends JFrame {
         footerPanel.setLayout(new BorderLayout());
         footerPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 15, 20));
 
-        
+        // Credits with modern styling
         JLabel credits = new JLabel("<html><center><div style='font-family: Segoe UI; color: #607D8B;'>"
                 + "<b>Developed by Team Tech Titans</b><br><br>"
-                + " Prashant Ranjan (24SCSE1011537)<br>"
-                + " Avesh Singh (24SCSE1011267)<br>"
-                + " Nishant Pandit (24SCSE1010365)<br>"
-                + " Kushagra Bhardwaj (24SCSE1010579)<br><br>"
+                + " Prashant Ranjan </br> "
                 + "<i>Digital Library Management System v2.0</i>"
                 + "</div></center></html>");
         credits.setHorizontalAlignment(SwingConstants.CENTER);
@@ -339,7 +321,7 @@ public class LibraryFrame extends JFrame {
                     btnColor = btnColor.brighter();
                 }
                 
-                
+                // Draw shadow
                 g2d.setColor(new Color(0, 0, 0, 30));
                 g2d.fill(new RoundRectangle2D.Float(2, 2, getWidth()-2, getHeight()-2, 20, 20));
                 
@@ -373,23 +355,23 @@ public class LibraryFrame extends JFrame {
         Graphics2D g2d = img.createGraphics();
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         
-        
+        // Building base
         g2d.setColor(new Color(70, 130, 180));
         g2d.fillRect(5, 25, 30, 10);
         
-        
+        // Columns
         g2d.setColor(new Color(100, 150, 200));
         for (int i = 0; i < 4; i++) {
             g2d.fillRect(8 + i * 6, 15, 3, 10);
         }
         
-        
+        // Roof
         g2d.setColor(new Color(50, 100, 150));
         int[] xPoints = {2, 20, 38};
         int[] yPoints = {15, 5, 15};
         g2d.fillPolygon(xPoints, yPoints, 3);
         
-        
+        // Door
         g2d.setColor(new Color(139, 69, 19));
         g2d.fillRect(17, 20, 6, 5);
         
@@ -402,11 +384,11 @@ public class LibraryFrame extends JFrame {
         Graphics2D g2d = img.createGraphics();
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         
-        
+        // Head
         g2d.setColor(new Color(70, 130, 180));
         g2d.fillOval(9, 5, 12, 12);
         
-        
+        // Body
         g2d.fillOval(6, 15, 18, 12);
         
         g2d.dispose();
@@ -454,3 +436,18 @@ public class LibraryFrame extends JFrame {
         JOptionPane.showMessageDialog(this, message, title, messageType);
     }
 }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
